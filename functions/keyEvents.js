@@ -1,47 +1,41 @@
 function keyEvents (event) {
-    if (!player.dead) {
-        switch (event.code) {
-            // player
-            
-            case 'KeyD':
-                keys.d.pressed = true
-                player.lastKey = 'd'
-                break;
-            case 'KeyA': 
-                keys.a.pressed = true
-                player.lastKey = 'a'
-                break
-            case 'KeyW':
-                if (player.position.y + player.height + player.velocity.y >= canvas.height - 100) {
-                    player.velocity.y = -20
-                    player.lastKey = 'w'
-                }
-                break  
-            case 'Space':
-                player.attack() 
-                break
+    if (!player1.dead) {
+        if (event.code === 'KeyD') {
+            keys.d.pressed = true
+            player1.lastKey = 'd'
+        }
+        if (event.code === 'KeyA') {
+            keys.a.pressed = true
+            player1.lastKey = 'a'
+        }
+        if (event.code === 'KeyW') {
+            keys.w.pressed = true
+            if (player1.velocity.y == 0 ){
+                player1.velocity.y = -20
+            }
+        }
+        if (event.code === 'Space') {
+            player1.attack()
         }
     }
-    if (!npc.dead) {
-        switch (event.code) {
-        // npc
-        case 'ArrowRight':
-            keys.ArrowRight.pressed = true
-            npc.lastKey = 'ArrowRight'
-            break;
-        case 'ArrowLeft': 
+    if (!player2.dead) {
+        if (event.code === 'ArrowLeft') {
             keys.ArrowLeft.pressed = true
-            npc.lastKey = 'ArrowLeft'
-            break
-        case 'ArrowUp':
-            if (npc.position.y + npc.height + npc.velocity.y >= canvas.height - 100 ) {
-                npc.velocity.y = -20
-                npc.lastKey = 'ArrowUp'
-            }
-            break
-        case 'ArrowDown':
-            npc.attack() 
-            break
+            player2.lastKey = 'ArrowLeft'
         }
+        if (event.code === 'ArrowRight') {
+            keys.ArrowRight.pressed = true
+            player2.lastKey = 'ArrowRight'
+        }
+        if (event.code === 'ArrowUp') {
+            keys.ArrowUp.pressed = true
+            if (player2.velocity.y == 0 ){
+                player2.velocity.y = -20
+            }
+        }
+        if (event.code === 'ArrowDown') {
+            player2.attack()
+        }
+       
     }
 }

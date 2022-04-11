@@ -1,16 +1,16 @@
 
 
-function determineWinner({player, npc, timer}) {
+function determineWinner({player1, player2, timer}) {
     clearTimeout(timer)
     const score = document.querySelector('.score')
-    if (player.health == npc.health) {
+    if (player1.health == player2.health) {
         score.innerText = 'Tie'
     }
-    if (player.health > npc.health) {
+    if (player1.health > player2.health) {
         score.innerText = 'player 1 wins'
     }
-    if (player.health < npc.health) {
-        score.innerText = 'Player 2 wins'
+    if (player1.health < player2.health) {
+        score.innerText = 'player 2 wins'
     }
 }
 let timer
@@ -25,7 +25,7 @@ function countDown () {
     if ( fightTime.innerText == 0 ){
         clearTimeout(timer)
         
-        determineWinner({player, npc})
+        determineWinner({player1, player2})
     }
     
 }

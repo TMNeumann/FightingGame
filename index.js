@@ -27,7 +27,7 @@ const shop = new Sprite ({
     framesMax: 6
 })
 
-const player = new Fighter({
+const player1 = new Fighter({
     position: {
         x: 100,
         y: 100
@@ -36,58 +36,83 @@ const player = new Fighter({
         x: 0,
         y: 0
     },
-    offset: {
-        x: 0,
-        y: 0 
-    },
-    imageSrc: './assets/img/fighter/Idle.png',
+    imageSrc: './assets/img/fighter/IdleR.png',
     framesMax: 10,
     scale: 3.2,
     offset: {
         x: 190,
         y: 125 
     },
+    facing: 'right',
     sprites: {
-        idle: {
-            imageSrc: './assets/img/fighter/idle.png',
+        idleL: {
+            imageSrc: './assets/img/fighter/IdleL.png',
             framesMax: 10
         },
-        run: {
-            imageSrc: './assets/img/fighter/run.png',
+        idleR: {
+            imageSrc: './assets/img/fighter/IdleR.png',
+            framesMax: 10
+        },
+        runL: {
+            imageSrc: './assets/img/fighter/RunL.png',
             framesMax: 6
         },
-        jump: {
-            imageSrc: './assets/img/fighter/jump.png',
+        runR: {
+            imageSrc: './assets/img/fighter/RunR.png',
+            framesMax: 6
+        },
+        jumpL: {
+            imageSrc: './assets/img/fighter/JumpL.png',
             framesMax: 2
         },
-        fall: {
-            imageSrc: './assets/img/fighter/fall.png',
+        jumpR: {
+            imageSrc: './assets/img/fighter/JumpR.png',
             framesMax: 2
         },
-        attack: {
-            imageSrc: './assets/img/fighter/attack3.png',
-            framesMax: 5
+        fallL: {
+            imageSrc: './assets/img/fighter/FallL.png',
+            framesMax: 2
         },
-        takeHit: {
-            imageSrc: './assets/img/fighter/takeHit.png',
-            framesMax: 5
+        fallR: {
+            imageSrc: './assets/img/fighter/FallR.png',
+            framesMax: 2
         },
-        death: {
-            imageSrc: './assets/img/fighter/death.png',
-            framesMax: 5
+        attackL: {
+            imageSrc: './assets/img/fighter/AttackL.png',
+            framesMax: 4
+        },
+        attackR: {
+            imageSrc: './assets/img/fighter/AttackR.png',
+            framesMax: 4
+        },
+        takeHitL: {
+            imageSrc: './assets/img/fighter/takeHitL.png',
+            framesMax: 3
+        },
+        takeHitR: {
+            imageSrc: './assets/img/fighter/takeHitR.png',
+            framesMax: 3
+        },
+        deathL: {
+            imageSrc: './assets/img/fighter/deathL.png',
+            framesMax: 9
+        },
+        deathR: {
+            imageSrc: './assets/img/fighter/deathR.png',
+            framesMax: 9
         }
     },
     attackBox: {
         offset: {
-            x: 400,
-            y: 110
+            x: 30,
+            y: 10
         },
-        width: 160,
-        height: 50
+        width: 100,
+        height: 100
     }
 })
 
-const npc = new Fighter({
+const player2 = new Fighter({
     position: {
         x: 800,
         y: 100
@@ -97,49 +122,78 @@ const npc = new Fighter({
         y: 0
     },
     offset: {
-        x: 150,
+        x: 190,
         y: 125 
     },
-    imageSrc: './assets/img/fighter/Idle.png',
+    imageSrc: './assets/img/fighter/IdleL.png',
     scale: 3.2,
     framesMax: 10,
+    facing: 'left',
     sprites: {
-        idle: {
-            imageSrc: './assets/img/fighter/Idle.png',
+        idleL: {
+            imageSrc: './assets/img/fighter/IdleL.png',
             framesMax: 10
         },
-        run: {
-            imageSrc: './assets/img/fighter/Run.png',
+        idleR: {
+            imageSrc: './assets/img/fighter/IdleR.png',
+            framesMax: 10
+        },
+        runL: {
+            imageSrc: './assets/img/fighter/RunL.png',
             framesMax: 6
         },
-        jump: {
-            imageSrc: './assets/img/fighter/Jump.png',
+        runR: {
+            imageSrc: './assets/img/fighter/RunR.png',
+            framesMax: 6
+        },
+        jumpL: {
+            imageSrc: './assets/img/fighter/JumpL.png',
             framesMax: 2
         },
-        fall: {
-            imageSrc: './assets/img/fighter/Fall.png',
+        jumpR: {
+            imageSrc: './assets/img/fighter/JumpR.png',
             framesMax: 2
         },
-        attack: {
-            imageSrc: './assets/img/fighter/Attack3.png',
-            framesMax: 5
+        fallL: {
+            imageSrc: './assets/img/fighter/FallL.png',
+            framesMax: 2
         },
-        takeHit: {
-            imageSrc: './assets/img/fighter/takeHit.png',
-            framesMax: 5
+        fallR: {
+            imageSrc: './assets/img/fighter/FallR.png',
+            framesMax: 2
         },
-        death: {
-            imageSrc: './assets/img/fighter/death.png',
-            framesMax: 5
+        attackL: {
+            imageSrc: './assets/img/fighter/AttackL.png',
+            framesMax: 4
+        },
+        attackR: {
+            imageSrc: './assets/img/fighter/AttackR.png',
+            framesMax: 4
+        },
+        takeHitL: {
+            imageSrc: './assets/img/fighter/takeHitL.png',
+            framesMax: 3
+        },
+        takeHitR: {
+            imageSrc: './assets/img/fighter/takeHitR.png',
+            framesMax: 3
+        },
+        deathL: {
+            imageSrc: './assets/img/fighter/deathL.png',
+            framesMax: 9
+        },
+        deathR: {
+            imageSrc: './assets/img/fighter/deathR.png',
+            framesMax: 9
         }
     },
     attackBox: {
         offset: {
-            x: 0,
-            y: 0
+            x: -70,
+            y: 10
         },
         width: 100,
-        height: 50
+        height: 100
     }
 })
 
@@ -153,6 +207,9 @@ const keys = {
     w: {
         pressed: false
     },
+    space: {
+        pressed: false
+    },
     ArrowUp: {
         pressed: false
     },
@@ -161,26 +218,31 @@ const keys = {
     },
     ArrowRight: {
         pressed: false
+    },
+    ArrowDown: {
+        pressed: false
     }
 }
-
-
 
 animate()
 
 window.addEventListener('keydown', keyEvents, false)
 
 window.addEventListener('keyup', (event)=> {
+    // player1
     switch (event.key) {
-        case 'd':
-            keys.d.pressed = false
-            break;
         case 'a': 
             keys.a.pressed = false
             break
+        case 'd':
+            keys.d.pressed = false
+            break;
         case 'w':
             keys.w.pressed = false
             break
+    }
+    // player2
+    switch (event.key) {
         case 'ArrowRight':
             keys.ArrowRight.pressed = false
             break
@@ -190,6 +252,7 @@ window.addEventListener('keyup', (event)=> {
         case 'ArrowUp':
             keys.ArrowUp.pressed = false
             break
-
     }
 })
+
+

@@ -4,147 +4,115 @@ function animate() {
     c.fillRect(0, 0, canvas.width, canvas.height)
     backGround.update()
     shop.update()
-    player.update()
-    npc.update()
+    player1.update()
+    player2.update()
 
-    player.velocity.x = player.inertia
-    npc.velocity.x = npc.inertia
+    player1.velocity.x = 0
+    player2.velocity.x = 0
+    // player1 movement
 
+    if ( keys.a.pressed && player1.lastKey === 'a') {
+        if (player1.position.x > 0 ){            
+            player1.velocity.x = -5
+        }
+        player1.facing = 'left'
+        player1.switchSprite('runL')
+    } else if (keys.d.pressed && player1.lastKey === 'd') {
+        if (player1.position.x + player1.width < canvas.width){            
+            player1.velocity.x = 5
+        }
+        player1.facing = 'right'
+        player1.switchSprite('runR')
+    } else {
+        if (player1.facing === 'right') {
+            player1.switchSprite('idleR')
+        } else if (player1.facing === 'left') {
+            player1.switchSprite('idleL')
+        } 
+    }
+    // jumping
+    if (player1.velocity.y < 0) {
+        if (player1.facing === 'right') {
+            player1.switchSprite('jumpR')
+        } else if (player1.facing === 'left') {
+            player1.switchSprite('jumpL')
+        } 
+    } else if (player1.velocity.y > 0) {
+        if (player1.facing === 'right') {
+            player1.switchSprite('fallR')
+        } else if (player1.facing === 'left') {
+            player1.switchSprite('fallL')
+        } 
+    }
     
-    // player movement
-    if ( keys.a.pressed 
-        && player.lastKey === 'a' 
-        && player.position.x > 0  
-        && player.inertia === 0 
-    || keys.a.pressed 
-    && player.lastKey === 'w' 
-    && player.position.x > 0  
-    && player.inertia === 0  ) {
-        player.switchSprite('run')
-        player.velocity.x = -5
-    } else if (keys.d.pressed 
-        && player.lastKey === 'd' 
-        && player.position.x + player.width < canvas.width 
-        && player.inertia === 0 
-    || keys.d.pressed 
-    && player.position.x + player.width < canvas.width 
-    && player.lastKey === 'w' 
-    && player.inertia === 0 ) {        
-        player.switchSprite('run')
-        player.velocity.x = 5
-    }
-    else {
-        player.switchSprite('idle')
-    }
-    // jumping / falling
-    if (player.velocity.y < 0) { 
-        player.switchSprite('jump')
-    } else if (player.velocity.y > 0) {
-        player.switchSprite('fall')
-    }
-    // npc movement
-    if (keys.ArrowLeft.pressed 
-        && npc.lastKey === 'ArrowLeft' 
-        && npc.position.x  > 0 
-        && npc.inertia === 0 
-    || keys.ArrowLeft.pressed 
-    && npc.lastKey === 'ArrowUp' 
-    && npc.position.x  > 0 
-    && npc.inertia === 0 ) {
-        npc.velocity.x = -5
-        npc.switchSprite('run')
-    } else if (keys.ArrowRight.pressed 
-        && npc.lastKey === 'ArrowRight' 
-        && npc.position.x + npc.width < canvas.width
-        && npc.inertia === 0 
-    || keys.ArrowRight.pressed 
-    && npc.lastKey === 'ArrowUp' 
-    && npc.position.x + npc.width < canvas.width 
-    && npc.inertia === 0 ) {
-        npc.velocity.x = 5
-        npc.switchSprite('run')
-    }
-    else {
-        npc.switchSprite('idle')
-    }
-    // jumping / falling
-    if (npc.velocity.y < 0) {
-        npc.switchSprite('jump')
-    } else if (npc.velocity.y > 0) {
-        npc.switchSprite('fall')
-    }
-    // litle physics
-    // player
-    if (player.velocity.y != 0 && player.velocity.x > 0 ) {
-        if (player.position.x + player.width < canvas.width) {
-            player.inertia = 5
-        } else {
-            player.inertia = 0
+    // player2 movement
+    if ( keys.ArrowLeft.pressed && player2.lastKey === 'ArrowLeft') {
+        if (player2.position.x > 0 ){            
+            player2.velocity.x = -5
         }
+        player2.facing = 'left'
+        player2.switchSprite('runL')
+    } else if (keys.ArrowRight.pressed && player2.lastKey === 'ArrowRight') {
+        if (player2.position.x + player2.width < canvas.width){            
+            player2.velocity.x = 5
+        }
+        player2.facing = 'right'
+        player2.switchSprite('runR')
+    } else {
+        if (player2.facing === 'right') {
+            player2.switchSprite('idleR')
+        } else if (player2.facing === 'left') {
+            player2.switchSprite('idleL')
+        } 
+    }
+      // jumping
+      if (player2.velocity.y < 0) {
+        if (player2.facing === 'right') {
+            player2.switchSprite('jumpR')
+        } else if (player2.facing === 'left') {
+            player2.switchSprite('jumpL')
+        } 
+    } else if (player2.velocity.y > 0) {
+        if (player2.facing === 'right') {
+            player2.switchSprite('fallR')
+        } else if (player2.facing === 'left') {
+            player2.switchSprite('fallL')
+        } 
+    }
+    // combat
 
-    } 
-    if (player.velocity.y != 0 && player.velocity.x < 0 ) {
-        if ( player.position.x > 0 ) {
-            player.inertia = -5
-        } else {
-            player.inertia = 0
-        }
-    } 
-    if (player.velocity.y === 0) {
-        player.inertia = 0
+    if (detectObjectCollision({ object1: player1, object2: player2 }) &&
+    player1.isAttacking && player1.framesCurrent === 2) {
+        player2.takeHit()
+        player1.isAttacking = false
     }
-    // npc
-    if (npc.velocity.y != 0 && npc.velocity.x > 0 ) {
-        if (npc.position.x + npc.width < canvas.width) {
-            npc.inertia = 5
-        } else {
-            npc.inertia = 0
-        }
-
-    } 
-    if (npc.velocity.y != 0 && npc.velocity.x < 0 ) {
-        if ( npc.position.x > 0 ) {
-            npc.inertia = -5
-        } else {
-            npc.inertia = 0
-        }
-    } 
-    if (npc.velocity.y === 0) {
-        npc.inertia = 0
+    if (detectObjectCollision({ object1: player2, object2: player1 }) &&
+    player2.isAttacking && player2.framesCurrent === 2) {
+        player1.takeHit()
+        player2.isAttacking = false
     }
 
-// combat
-    const playerHealth = document.querySelector('.playerHealth div')
-    const npcHealth = document.querySelector('.npcHealth div')
-    if ( detectObjectCollision({ object1: player, object2: npc }) && player.isAttacking ) {
-        console.log('player atack')
-        npc.health -= 10
-        player.switchSprite('attack')
-        npc.switchSprite('takeHit')
-        npcHealth.style.width = npc.health + '%'
-        player.isAttacking = false
+    // if player1 misses
+    if (player1.isAttacking && player1.framesCurrent === 4) {
+        player1.isAttacking = false
     }
-    if ( detectObjectCollision({ object1: npc, object2: player }) && npc.isAttacking) {
-        npc.isAttacking = false
-        console.log('npc attack')
-        npc.switchSprite('attack')
-        player.switchSprite('takeHit')
-        player.health -= 10
-        playerHealth.style.width = player.health + '%'
-    }
-
-    // miss
-    if (player.isAttacking && player.framesCurrent > 3) {
-        console.log(player.framesCurrent)
-        player.isAttacking = false
-    }
-    if (npc.isAttacking && npc.framesCurrent > 3) {
-        player.isAttacking = false
+    // if player2 misses
+    if (player2.isAttacking && player2.framesCurrent === 4) {
+        player2.isAttacking = false
     }
 
     // game over via HP
-    if ( player.health <= 0 || npc.health <= 0 ) {
-        determineWinner({player, npc, timer})
+    if (player1.health <= 0 || player2.health <= 0 ) {
+        determineWinner({player1, player2, timer})
     }
+
+    function updateHealthbar () {
+        const player1HealthBar = document.querySelector('.player1HealthBar div')    
+        const player2healthBar = document.querySelector('.player2healthBar div')
+            
+        player1HealthBar.style.width = player1.health + '%'
+        player2healthBar.style.width = player2.health + '%'
+    }
+    updateHealthbar ()
 
 }
