@@ -85,22 +85,22 @@ const player1 = new Fighter({
             imageSrc: './assets/img/fighter/AttackR.png',
             framesMax: 4
         },
-        takeHitL: {
-            imageSrc: './assets/img/fighter/takeHitL.png',
-            framesMax: 3
-        },
-        takeHitR: {
-            imageSrc: './assets/img/fighter/takeHitR.png',
-            framesMax: 3
-        },
-        deathL: {
-            imageSrc: './assets/img/fighter/deathL.png',
-            framesMax: 9
-        },
-        deathR: {
-            imageSrc: './assets/img/fighter/deathR.png',
-            framesMax: 9
-        }
+        // takeHitL: {
+        //     imageSrc: './assets/img/fighter/takeHitL.png',
+        //     framesMax: 3
+        // },
+        // takeHitR: {
+        //     imageSrc: './assets/img/fighter/takeHitR.png',
+        //     framesMax: 3
+        // },
+        // deathL: {
+        //     imageSrc: './assets/img/fighter/deathL.png',
+        //     framesMax: 9
+        // },
+        // deathR: {
+        //     imageSrc: './assets/img/fighter/deathR.png',
+        //     framesMax: 9
+        // }
     },
     attackBox: {
         offset: {
@@ -170,22 +170,22 @@ const player2 = new Fighter({
             imageSrc: './assets/img/fighter/AttackR.png',
             framesMax: 4
         },
-        takeHitL: {
-            imageSrc: './assets/img/fighter/takeHitL.png',
-            framesMax: 3
-        },
-        takeHitR: {
-            imageSrc: './assets/img/fighter/takeHitR.png',
-            framesMax: 3
-        },
-        deathL: {
-            imageSrc: './assets/img/fighter/deathL.png',
-            framesMax: 9
-        },
-        deathR: {
-            imageSrc: './assets/img/fighter/deathR.png',
-            framesMax: 9
-        }
+        // takeHitL: {
+        //     imageSrc: './assets/img/fighter/takeHitL.png',
+        //     framesMax: 3
+        // },
+        // takeHitR: {
+        //     imageSrc: './assets/img/fighter/takeHitR.png',
+        //     framesMax: 3
+        // },
+        // deathL: {
+        //     imageSrc: './assets/img/fighter/deathL.png',
+        //     framesMax: 9
+        // },
+        // deathR: {
+        //     imageSrc: './assets/img/fighter/deathR.png',
+        //     framesMax: 9
+        // }
     },
     attackBox: {
         offset: {
