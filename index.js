@@ -86,19 +86,19 @@ const player1 = new Fighter({
             framesMax: 4
         },
         takeHitL: {
-            imageSrc: './assets/img/fighter/takeHitL.png',
+            imageSrc: './assets/img/fighter/TakeHitL.png',
             framesMax: 3
         },
         takeHitR: {
-            imageSrc: './assets/img/fighter/takeHitR.png',
+            imageSrc: './assets/img/fighter/TakeHitR.png',
             framesMax: 3
         },
         deathL: {
-            imageSrc: './assets/img/fighter/deathL.png',
+            imageSrc: './assets/img/fighter/DeathL.png',
             framesMax: 9
         },
         deathR: {
-            imageSrc: './assets/img/fighter/deathR.png',
+            imageSrc: './assets/img/fighter/DeathR.png',
             framesMax: 9
         }
     },
