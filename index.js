@@ -13,7 +13,7 @@ const backGround = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './assets/img/bg.png'
+    imageSrc: 'https://tmneumann.github.io/assets/img/bg.png'
 })
 
 const shop = new Sprite ({
@@ -22,7 +22,7 @@ const shop = new Sprite ({
         x: 650,
         y: 160
     },
-    imageSrc: './assets/img/shop_anim.png',
+    imageSrc: 'https://tmneumann.github.io/assets/img/shop_anim.png',
     scale: 2.5,
     framesMax: 6
 })
@@ -36,7 +36,7 @@ const player1 = new Fighter({
         x: 0,
         y: 0
     },
-    imageSrc: './assets/img/fighter/IdleR.png',
+    imageSrc: '.https://tmneumann.github.io/assets/img/fighter/IdleR.png',
     framesMax: 10,
     scale: 3.2,
     offset: {
@@ -46,59 +46,59 @@ const player1 = new Fighter({
     facing: 'right',
     sprites: {
         idleL: {
-            imageSrc: './assets/img/fighter/IdleL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/IdleL.png',
             framesMax: 10
         },
         idleR: {
-            imageSrc: './assets/img/fighter/IdleR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/IdleR.png',
             framesMax: 10
         },
         runL: {
-            imageSrc: './assets/img/fighter/RunL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/RunL.png',
             framesMax: 6
         },
         runR: {
-            imageSrc: './assets/img/fighter/RunR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/RunR.png',
             framesMax: 6
         },
         jumpL: {
-            imageSrc: './assets/img/fighter/JumpL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/JumpL.png',
             framesMax: 2
         },
         jumpR: {
-            imageSrc: './assets/img/fighter/JumpR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/JumpR.png',
             framesMax: 2
         },
         fallL: {
-            imageSrc: './assets/img/fighter/FallL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/FallL.png',
             framesMax: 2
         },
         fallR: {
-            imageSrc: './assets/img/fighter/FallR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/FallR.png',
             framesMax: 2
         },
         attackL: {
-            imageSrc: './assets/img/fighter/AttackL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/AttackL.png',
             framesMax: 4
         },
         attackR: {
-            imageSrc: './assets/img/fighter/AttackR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/AttackR.png',
             framesMax: 4
         },
         takeHitL: {
-            imageSrc: './assets/img/fighter/takeHitL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/takeHitL.png',
             framesMax: 3
         },
         takeHitR: {
-            imageSrc: './assets/img/fighter/takeHitR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/takeHitR.png',
             framesMax: 3
         },
         deathL: {
-            imageSrc: './assets/img/fighter/deathL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/deathL.png',
             framesMax: 9
         },
         deathR: {
-            imageSrc: './assets/img/fighter/deathR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/deathR.png',
             framesMax: 9
         }
     },
@@ -125,65 +125,65 @@ const player2 = new Fighter({
         x: 190,
         y: 125 
     },
-    imageSrc: './assets/img/fighter/IdleL.png',
+    imageSrc: 'https://tmneumann.github.io/assets/img/fighter/IdleL.png',
     scale: 3.2,
     framesMax: 10,
     facing: 'left',
     sprites: {
         idleL: {
-            imageSrc: './assets/img/fighter/IdleL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/IdleL.png',
             framesMax: 10
         },
         idleR: {
-            imageSrc: './assets/img/fighter/IdleR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/IdleR.png',
             framesMax: 10
         },
         runL: {
-            imageSrc: './assets/img/fighter/RunL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/RunL.png',
             framesMax: 6
         },
         runR: {
-            imageSrc: './assets/img/fighter/RunR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/RunR.png',
             framesMax: 6
         },
         jumpL: {
-            imageSrc: './assets/img/fighter/JumpL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/JumpL.png',
             framesMax: 2
         },
         jumpR: {
-            imageSrc: './assets/img/fighter/JumpR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/JumpR.png',
             framesMax: 2
         },
         fallL: {
-            imageSrc: './assets/img/fighter/FallL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/FallL.png',
             framesMax: 2
         },
         fallR: {
-            imageSrc: './assets/img/fighter/FallR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/FallR.png',
             framesMax: 2
         },
         attackL: {
-            imageSrc: './assets/img/fighter/AttackL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/AttackL.png',
             framesMax: 4
         },
         attackR: {
-            imageSrc: './assets/img/fighter/AttackR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/AttackR.png',
             framesMax: 4
         },
         takeHitL: {
-            imageSrc: './assets/img/fighter/takeHitL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/takeHitL.png',
             framesMax: 3
         },
         takeHitR: {
-            imageSrc: './assets/img/fighter/takeHitR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/takeHitR.png',
             framesMax: 3
         },
         deathL: {
-            imageSrc: './assets/img/fighter/deathL.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/deathL.png',
             framesMax: 9
         },
         deathR: {
-            imageSrc: './assets/img/fighter/deathR.png',
+            imageSrc: 'https://tmneumann.github.io/assets/img/fighter/deathR.png',
             framesMax: 9
         }
     },
