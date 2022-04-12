@@ -13,7 +13,7 @@ const backGround = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: 'https://tmneumann.github.io//assets/img/bg.png'
+    imageSrc: './assets/img/bg.png'
 })
 
 const shop = new Sprite ({
@@ -224,6 +224,23 @@ const keys = {
     }
 }
 
+let aiState = 'standby'
+
+function startGame () {
+    console.log(player2.dead)   
+    document.querySelector('.startPanel').classList.add('hidden')
+    document.querySelector('.score').innerText = ''
+    player1.health = 100
+    player1.image = player1.sprites.idleL.image
+    player1.dead = false
+    player1.position.x = 100
+    player2.health = 100
+    player2.image = player2.sprites.idleL.image
+    player2.dead = false
+    player2.position.x = 800
+    countDown()
+    aiState = 'go'
+}
 animate()
 
 window.addEventListener('keydown', keyEvents, false)
@@ -255,4 +272,63 @@ window.addEventListener('keyup', (event)=> {
     }
 })
 
+function ai () {
+    if (aiState === 'go' && !player1.dead && !player2.dead) {
+        let dif = player2.position.x - player1.position.x
+        let randomJump = Math.floor(Math.random() * 100)
+        let randomHit = Math.floor(Math.random() * 100)
+        if (randomJump > 98) {
+            keys.ArrowUp.pressed = true
+            if (player2.velocity.y == 0 ){
+                player2.velocity.y = -20
+            }
+        }
+        setTimeout(() => {
+            if (dif > 30) {
+                keys.ArrowLeft.pressed = true
+                player2.lastKey = 'ArrowLeft'
+            } else if (dif < 30) {
+                keys.ArrowRight.pressed = true
+                player2.lastKey = 'ArrowRight'
+            } else if (randomHit > 20) {
+                player2.attack()
+            }
+        }, 400);
+    } else {
+        keys.ArrowLeft.pressed = false
+        player2.lastKey = 'ArrowLeft'
+    }
+}
 
+const upBtn = document.querySelector('.upBtn')
+const rightBtn = document.querySelector('.rightBtn')
+const leftBtn = document.querySelector('.leftBtn')
+const attackBtn = document.querySelector('.attackBtn')
+
+upBtn.addEventListener('mousedown', emulateKey, false)
+rightBtn.addEventListener('mousedown', emulateKey, false)
+leftBtn.addEventListener('mousedown', emulateKey, false)
+attackBtn.addEventListener('mousedown',emulateKey, false)
+
+function emulateKey (event) {
+    if (event.target.classList.value === 'leftBtn') {
+        keys.a.pressed = true
+        player1.lastKey = 'a'
+    } else if (event.target.classList.value === 'rightBtn') {
+        keys.d.pressed = true
+        player1.lastKey = 'd'
+    } else if (event.target.classList.value === 'upBtn') {
+        player1.velocity.y = -20
+    } else if (event.target.classList.value === 'attackBtn') {
+        player1.attack()
+    }
+}
+
+rightBtn.addEventListener('mouseup', () => {
+    keys.d.pressed = false
+    player1.lastKey = ''
+})
+leftBtn.addEventListener('mouseup', () => {
+    keys.a.pressed = false
+    player1.lastKey = ''
+})

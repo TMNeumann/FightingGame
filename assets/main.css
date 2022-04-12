@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.hidden {
+    display: none!important;
+}
 body {
     overflow: hidden;
     background-color: black;
@@ -55,6 +58,23 @@ body {
     font-size: 3em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.deathCount {
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    display: flex;
+    justify-content: space-between;
+    color: #fcfcfc;
+    font-size: 1.5em;
+}
+.player1Deaths {
+    padding: .15em 1em;
+    text-align: left;
+}
+.player2Deaths {
+    padding: .15em 1em;
+    text-align: right;
+}
 .score {
     color: #fff;
     position: absolute;
@@ -62,5 +82,62 @@ body {
     left: 50%;
     transform: translate(-50%)
 }
-canvas {
+.controlers {
+    width: 100px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(45deg);
+}
+.controlers.left {
+    bottom: 0;
+    left: 30px;
+}
+.controlers button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
+    border: none;
+    outline: solid 1px gold;
+    outline-offset: 1px;
+    background-color: gold;
+    opacity: .2;
+    cursor: pointer;
+}
+.controlers .unused {
+    opacity: 0;
+    pointer-events: none;
+}
+.controlers.right {
+    right: 30px;
+    bottom: 30px;
+}
+.controlers.right button {
+    width: 50px;
+    height: 50px;
+}
+button:hover {
+    opacity: .5;
+}
+.startPanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.startBtn {
+    height: auto;
+    padding: .5em;
+    margin-top: 90px;
+    background-color: black;
+    color: #fcfcfc;
+    border: none;
+    cursor: pointer;
 }

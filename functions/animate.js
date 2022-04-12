@@ -6,6 +6,8 @@ function animate() {
     shop.update()
     player1.update()
     player2.update()
+    
+    ai()
 
     player1.velocity.x = 0
     player2.velocity.x = 0

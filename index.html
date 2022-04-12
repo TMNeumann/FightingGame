@@ -24,8 +24,24 @@
                 <div></div>
             </div>
         </div>
+        <div class="deathCount">
+            <div class="player1Deaths">0</div>
+            <div class="player2Deaths">0</div>
+        </div>
         <div class="score"></div>
         <canvas></canvas>
+        <div class="controlers left">
+            <button class="upBtn"></button>
+            <button class="rightBtn"></button>
+            <button class="leftBtn"></button>
+            <button class="unused"></button>
+        </div>
+        <div class="controlers right">
+            <button class="attackBtn"></button>
+        </div>
+        <div class="startPanel">
+            <button class="startBtn" onclick="startGame()">Start</button>
+        </div>
     </div>
 </body>
 <script src="./functions/detectObjectCollision.js"></script>
