@@ -7,7 +7,11 @@ function determineWinner({player1, player2, timer}) {
     if (player1.health > player2.health) {
         score.innerText = 'player 1 wins'
         countDeaths('.player1Deaths')
-        aiState = 'standby'
+        if (aiState !== 'standby') {
+            gameDificulty++
+            console.log(gameDificulty)
+        }
+        aiState = 'standby' 
     }
     if (player1.health < player2.health) {
         score.innerText = 'player 2 wins'

@@ -225,10 +225,12 @@ const keys = {
 }
 
 let aiState = 'standby'
+let gameDificulty = 1
 
 function startGame () {
     console.log(player2.dead)   
     document.querySelector('.startPanel').classList.add('hidden')
+    document.querySelector('.timer').innerText = 60
     document.querySelector('.score').innerText = ''
     player1.health = 100
     player1.image = player1.sprites.idleL.image
@@ -276,7 +278,7 @@ function ai () {
     if (aiState === 'go' && !player1.dead && !player2.dead) {
         let dif = player2.position.x - player1.position.x
         let randomJump = Math.floor(Math.random() * 100)
-        let randomHit = Math.floor(Math.random() * 100)
+        let randomHit = Math.floor(Math.random() * 100) 
         if (randomJump > 98) {
             keys.ArrowUp.pressed = true
             if (player2.velocity.y == 0 ){
@@ -290,7 +292,8 @@ function ai () {
             } else if (dif < 30) {
                 keys.ArrowRight.pressed = true
                 player2.lastKey = 'ArrowRight'
-            } else if (randomHit > 20) {
+            } 
+            if (dif < 30 && randomHit > 99 - gameDificulty) {
                 player2.attack()
             }
         }, 400);
@@ -299,29 +302,61 @@ function ai () {
         player2.lastKey = 'ArrowLeft'
     }
 }
-
+// controlers
 const upBtn = document.querySelector('.upBtn')
 const rightBtn = document.querySelector('.rightBtn')
 const leftBtn = document.querySelector('.leftBtn')
 const attackBtn = document.querySelector('.attackBtn')
 
-upBtn.addEventListener('mousedown', emulateKey, false)
-rightBtn.addEventListener('mousedown', emulateKey, false)
-leftBtn.addEventListener('mousedown', emulateKey, false)
-attackBtn.addEventListener('mousedown',emulateKey, false)
+upBtn.addEventListener('mousedown', moveUp, false)
+rightBtn.addEventListener('mousedown', moveRight, false)
+leftBtn.addEventListener('mousedown', moveLeft, false)
+attackBtn.addEventListener('mousedown',buttonAttack, false)
 
-function emulateKey (event) {
-    if (event.target.classList.value === 'leftBtn') {
-        keys.a.pressed = true
-        player1.lastKey = 'a'
-    } else if (event.target.classList.value === 'rightBtn') {
-        keys.d.pressed = true
-        player1.lastKey = 'd'
-    } else if (event.target.classList.value === 'upBtn') {
+
+rightBtn.addEventListener('mouseup', () => {
+    keys.d.pressed = false
+})
+leftBtn.addEventListener('mouseup', () => {
+    keys.a.pressed = false
+})
+// mobile
+rightBtn.addEventListener('touchstart', (event) => {
+    console.log(event)
+    keys.d.pressed = true
+    player1.lastKey = 'd'
+})
+leftBtn.addEventListener('touchstart', (event) => {
+    
+    keys.a.pressed = true
+    player1.lastKey = 'a'
+})
+attackBtn.addEventListener('touchstart', (event) => {
+    console.log(event)
+    player1.attack()
+})
+upBtn.addEventListener('touchstart', (event) => {
+    console.log(event)
+    if (player1.velocity.y == 0 ){
         player1.velocity.y = -20
-    } else if (event.target.classList.value === 'attackBtn') {
-        player1.attack()
     }
+})
+
+function moveLeft() {
+    keys.a.pressed = true
+    player1.lastKey = 'a'
+}
+function moveRight() {
+    keys.d.pressed = true
+    player1.lastKey = 'd'
+}
+function moveUp() {
+    if (player1.velocity.y == 0 ){
+        player1.velocity.y = -20
+    }
+}
+function buttonAttack () {
+    player1.attack()
 }
 
 rightBtn.addEventListener('mouseup', () => {
