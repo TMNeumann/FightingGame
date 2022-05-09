@@ -83,7 +83,7 @@ body {
     transform: translate(-50%)
 }
 .controlers {
-    width: 100px;
+    width: 180px;
     position: absolute;
     display: flex;
     flex-wrap: wrap;
@@ -94,8 +94,8 @@ body {
     left: 30px;
 }
 .controlers button {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     margin: 5px;
     border-radius: 50%;
     border: none;
@@ -114,8 +114,8 @@ body {
     bottom: 30px;
 }
 .controlers.right button {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 button:hover {
     opacity: .5;
